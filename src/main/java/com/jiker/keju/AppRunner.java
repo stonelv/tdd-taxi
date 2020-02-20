@@ -4,9 +4,14 @@ import java.io.IOException;
 
 public class AppRunner {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String testDataFile = args[0];
-        String receipt = new RunTestData(testDataFile).showResult();
+        String receipt = "";
+        try {
+            receipt = new RunTestData(testDataFile).showResult();
+        } catch (IOException ex) {
+            receipt = ex.getMessage();
+        }
         System.out.println(receipt);
     }
 }

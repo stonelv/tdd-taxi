@@ -1,17 +1,22 @@
 package com.jiker.keju;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
 
 public class FileReaderNew {
-    private String _fileName;
+    private String fileName;
+
     public FileReaderNew(String fileName) {
-        _fileName = fileName;
+        this.fileName = fileName;
     }
 
     public List<String> readTxtFileIntoStringArrList() throws IOException {
-        File file = new File("src/main/resources/" + _fileName);
+        File file = new File("src/main/resources/" + fileName);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf8"));
         return getListFromBufferedReader(bufferedReader);
     }
