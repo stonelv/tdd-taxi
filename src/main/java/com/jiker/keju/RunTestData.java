@@ -14,11 +14,11 @@ public class RunTestData {
 
     public String showResult() {
         String result = "";
-        TaxiCalculater taxiCalculater = new TaxiCalculater();
         for (String data : testDataList) {
             String[] dataArray = data.split(",");
             result += String.format("收费%d元\\n",
-                    taxiCalculater.showPrice(Integer.parseInt(dataArray[0]), Integer.parseInt(dataArray[1])));
+                    new TaxiCalculater().showPrice(Integer.parseInt(dataArray[0].replaceAll("\\D", "")),
+                            Integer.parseInt(dataArray[1].replaceAll("\\D", ""))));
         }
         return  result;
     }

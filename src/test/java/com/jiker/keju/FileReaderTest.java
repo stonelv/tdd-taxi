@@ -11,6 +11,6 @@ public class FileReaderTest {
         FileReaderNew fileReader = new FileReaderNew("testData.txt");
         List<String> list = fileReader.readTxtFileIntoStringArrList();
         assert list.size() == 4;
-        assert list.get(1).equals("3,0");
+        assert list.get(1).isEmpty() == false;
     }
 }
